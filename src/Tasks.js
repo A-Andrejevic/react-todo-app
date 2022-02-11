@@ -5,7 +5,7 @@ export default function Tasks(props) {
   return (
     <>
       {props.tasks.map((task) => {
-        return <Task key={task.id} task={task} />;
+        return <Task key={task.id} task={task} onDelete={props.onDelete} />;
       })}
     </>
   );
