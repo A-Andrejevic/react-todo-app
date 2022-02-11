@@ -1,32 +1,12 @@
-import React from "react";
 import "./Tasks.css";
+import Task from "./Task";
 
-export default function Tasks() {
-  let tasks = [
-    {
-      id: 1,
-      name: "Doctor's Appointment",
-      day: "Feb 5th at 2:30 PM",
-      reminder: true,
-    },
-    {
-      id: 2,
-      name: "Meeting at School",
-      day: "Feb 6th at 5:30 PM",
-      reminder: true,
-    },
-    {
-      id: 3,
-      name: "Food Shopping",
-      day: "Feb 7th at 8:30 AM",
-      reminder: false,
-    },
-  ];
+export default function Tasks(props) {
   return (
-    <ul className="Tasks">
-      {tasks.map((task, index) => {
-        return <li key={index}>{task.name}</li>;
+    <>
+      {props.tasks.map((task) => {
+        return <Task key={task.id} task={task} />;
       })}
-    </ul>
+    </>
   );
 }
