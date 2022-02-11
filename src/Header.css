@@ -1,0 +1,9 @@
+h1 {
+  color: rgb(14, 31, 90);
+}
+
+button.btn {
+  border: solid;
+  border-color: black;
+  background-color: rgb(177, 215, 216);
+}
