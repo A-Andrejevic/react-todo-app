@@ -2,7 +2,7 @@ import React from "react";
 import AddTask from "./AddTask";
 import "./Header.css";
 
-export default function Header() {
+export default function Header(props) {
   function addTask() {
     console.log("click");
   }
@@ -10,7 +10,7 @@ export default function Header() {
   return (
     <div className="Header">
       <h1>Task Tracker </h1>
-      <AddTask />
+      <AddTask onAdd={props.onAdd} />
       <button className="btn" onClick={addTask}>
         Add Task
       </button>

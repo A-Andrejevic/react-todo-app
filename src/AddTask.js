@@ -1,16 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 import "./AddTask.css";
 
-export default function AddTask() {
+export default function AddTask(props) {
+  let [task, setTask] = useState("");
+  let [day, setDay] = useState("");
+  let [reminder, setReminder] = useState(false);
+
+  function createTask(event) {
+    setTask(event.target.value);
+  }
+
+  function createTime(event) {
+    setDay(event.target.value);
+  }
+
+  function createReminder(event) {
+    setReminder(event.target.value);
+  }
+
+  function submitTask(event) {
+    event.preventDefault();
+  }
+
   return (
-    <form className="AddTask">
-      <input type="text" placeholder="Enter task here" />
+    <form className="AddTaskForm" onSubmit={submitTask}>
+      <input
+        type="text"
+        placeholder="Enter task here"
+        value={task}
+        onChange={createTask}
+      />
       <br />
       <br />
-      <input type="text" placeholder="Enter day and time" />
+      <input
+        type="text"
+        placeholder="Enter day and time"
+        value={day}
+        onChange={createTime}
+      />
       <br />
-      <input type="checkbox" />
-      <input type="submit" value="Save task" />
+      <label>Set Reminder</label>
+      <input type="checkbox" value={reminder} onChange={createReminder} />
+      <br />
+      <input
+        type="submit button"
+        value="Save task"
+        className="btn btn-secondary btn-lg btn-block"
+      />
     </form>
   );
 }
